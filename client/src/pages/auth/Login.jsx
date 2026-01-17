@@ -20,6 +20,8 @@ const Login = () => {
       const res = await login(email, password);
       if (res.data?.user?.role === "Student") {
         navigate("/student/dashboard");
+      } else if (res.data?.user?.role === "Teacher") {
+        navigate("/faculty/dashboard");
       } else {
         navigate("/admin/dashboard");
       }
@@ -93,7 +95,7 @@ const Login = () => {
           </div>
 
           {/* Demo Credentials */}
-          <div className="grid grid-cols-2 gap-3 mb-8">
+          <div className="grid grid-cols-3 gap-3 mb-8">
             <button
               type="button"
               onClick={() => {
@@ -105,7 +107,20 @@ const Login = () => {
               <div className="uppercase tracking-wider text-[10px] text-slate-400 mb-1">
                 Demo Admin
               </div>
-              admin@sms.com
+              admin@sms...
+            </button>
+            <button
+              type="button"
+              onClick={() => {
+                setEmail("faculty@sms.com");
+                setPassword("password");
+              }}
+              className="p-3 bg-slate-50 border border-slate-100 rounded-xl text-xs font-bold text-slate-600 hover:bg-yellow-50 hover:border-yellow-200 hover:text-yellow-700 transition-all text-left"
+            >
+              <div className="uppercase tracking-wider text-[10px] text-slate-400 mb-1">
+                Demo Faculty
+              </div>
+              faculty@sms...
             </button>
             <button
               type="button"
@@ -118,7 +133,7 @@ const Login = () => {
               <div className="uppercase tracking-wider text-[10px] text-slate-400 mb-1">
                 Demo Student
               </div>
-              student@sms.com
+              student@sms...
             </button>
           </div>
 

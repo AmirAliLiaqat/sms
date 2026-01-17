@@ -1,0 +1,9 @@
+export { default as FacultyDashboard } from './FacultyDashboard';
+export { default as FacultyProfile } from './FacultyProfile';
+export { default as FacultyClasses } from './FacultyClasses';
+export { default as FacultyStudents } from './FacultyStudents';
+export { default as FacultyAttendance } from './FacultyAttendance';
+export { default as FacultyResults } from './FacultyResults';
+export { default as FacultyAssignments } from './FacultyAssignments';
+export { default as FacultyTimetable } from './FacultyTimetable';
+export { default as FacultyAnnouncements } from './FacultyAnnouncements';

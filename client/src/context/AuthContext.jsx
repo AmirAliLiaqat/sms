@@ -31,6 +31,14 @@ export const AuthProvider = ({ children }) => {
         role: "Admin",
         avatar: "A",
       };
+    } else if (email.includes("faculty") || email.includes("teacher")) {
+      dummyUser = {
+        id: "faculty-1",
+        name: "Faculty Member",
+        email: email,
+        role: "Teacher",
+        avatar: "F",
+      };
     } else {
       dummyUser = {
         id: "student-1",

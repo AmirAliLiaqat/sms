@@ -75,6 +75,20 @@ import {
   StudentChangePassword,
 } from "./pages/student/Modules";
 
+// faculty routes
+import FacultyLayout from "./components/layout/FacultyLayout";
+import {
+  FacultyDashboard,
+  FacultyProfile as FacultyMyProfile,
+  FacultyClasses,
+  FacultyStudents,
+  FacultyAttendance,
+  FacultyResults,
+  FacultyAssignments,
+  FacultyTimetable,
+  FacultyAnnouncements,
+} from "./pages/faculty/Modules";
+
 function App() {
   return (
     <Router>
@@ -163,6 +177,29 @@ function App() {
             <Route path="notices" element={<StudentNotices />} />
             <Route path="submissions" element={<StudentSubmissions />} />
             <Route path="change-password" element={<StudentChangePassword />} />
+          </Route>
+        </Route>
+
+        {/* Faculty Routes */}
+        <Route element={<ProtectedRoute allowedRoles={["Teacher"]} />}>
+          <Route
+            path="/faculty"
+            element={
+              <FacultyLayout>
+                <Outlet />
+              </FacultyLayout>
+            }
+          >
+            <Route index element={<Navigate to="dashboard" replace />} />
+            <Route path="dashboard" element={<FacultyDashboard />} />
+            <Route path="profile" element={<FacultyMyProfile />} />
+            <Route path="classes" element={<FacultyClasses />} />
+            <Route path="students" element={<FacultyStudents />} />
+            <Route path="attendance" element={<FacultyAttendance />} />
+            <Route path="results" element={<FacultyResults />} />
+            <Route path="assignments" element={<FacultyAssignments />} />
+            <Route path="timetable" element={<FacultyTimetable />} />
+            <Route path="announcements" element={<FacultyAnnouncements />} />
           </Route>
         </Route>
       </Routes>
