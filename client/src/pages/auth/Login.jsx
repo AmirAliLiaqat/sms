@@ -22,6 +22,16 @@ const Login = () => {
         navigate("/student/dashboard");
       } else if (res.data?.user?.role === "Teacher") {
         navigate("/faculty/dashboard");
+      } else if (res.data?.user?.role === "Manager") {
+        navigate("/management/dashboard");
+      } else if (res.data?.user?.role === "Staff") {
+        navigate("/staff/dashboard");
+      } else if (res.data?.user?.role === "Librarian") {
+        navigate("/library/dashboard");
+      } else if (res.data?.user?.role === "Canteen") {
+        navigate("/canteen/dashboard");
+      } else if (res.data?.user?.role === "Transport") {
+        navigate("/transport/dashboard");
       } else {
         navigate("/admin/dashboard");
       }
@@ -134,6 +144,71 @@ const Login = () => {
                 Demo Student
               </div>
               student@sms...
+            </button>
+            <button
+              type="button"
+              onClick={() => {
+                setEmail("manager@sms.com");
+                setPassword("password");
+              }}
+              className="p-3 bg-slate-50 border border-slate-100 rounded-xl text-xs font-bold text-slate-600 hover:bg-yellow-50 hover:border-yellow-200 hover:text-yellow-700 transition-all text-left"
+            >
+              <div className="uppercase tracking-wider text-[10px] text-slate-400 mb-1">
+                Demo Manager
+              </div>
+              manager@sms...
+            </button>
+            <button
+              type="button"
+              onClick={() => {
+                setEmail("staff@sms.com");
+                setPassword("password");
+              }}
+              className="p-3 bg-slate-50 border border-slate-100 rounded-xl text-xs font-bold text-slate-600 hover:bg-yellow-50 hover:border-yellow-200 hover:text-yellow-700 transition-all text-left"
+            >
+              <div className="uppercase tracking-wider text-[10px] text-slate-400 mb-1">
+                Demo Staff
+              </div>
+              staff@sms...
+            </button>
+             <button
+              type="button"
+              onClick={() => {
+                setEmail("library@sms.com");
+                setPassword("password");
+              }}
+              className="p-3 bg-slate-50 border border-slate-100 rounded-xl text-xs font-bold text-slate-600 hover:bg-yellow-50 hover:border-yellow-200 hover:text-yellow-700 transition-all text-left"
+            >
+              <div className="uppercase tracking-wider text-[10px] text-slate-400 mb-1">
+                Demo Librarian
+              </div>
+              library@sms...
+            </button>
+             <button
+              type="button"
+              onClick={() => {
+                setEmail("canteen@sms.com");
+                setPassword("password");
+              }}
+              className="p-3 bg-slate-50 border border-slate-100 rounded-xl text-xs font-bold text-slate-600 hover:bg-yellow-50 hover:border-yellow-200 hover:text-yellow-700 transition-all text-left"
+            >
+              <div className="uppercase tracking-wider text-[10px] text-slate-400 mb-1">
+                Demo Canteen
+              </div>
+              canteen@sms...
+            </button>
+             <button
+              type="button"
+              onClick={() => {
+                setEmail("transport@sms.com");
+                setPassword("password");
+              }}
+              className="p-3 bg-slate-50 border border-slate-100 rounded-xl text-xs font-bold text-slate-600 hover:bg-yellow-50 hover:border-yellow-200 hover:text-yellow-700 transition-all text-left"
+            >
+              <div className="uppercase tracking-wider text-[10px] text-slate-400 mb-1">
+                Demo Transport
+              </div>
+              transport@sms...
             </button>
           </div>
 

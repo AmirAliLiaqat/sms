@@ -89,6 +89,51 @@ import {
   FacultyAnnouncements,
 } from "./pages/faculty/Modules";
 
+// management routes
+import ManagementLayout from "./components/layout/ManagementLayout";
+import {
+  ManagementDashboard,
+  ManagementFinance,
+  ManagementReports,
+  ManagementApprovals,
+  ManagementStaff,
+  ManagementDepartments,
+} from "./pages/management/Modules";
+
+// staff routes
+import StaffLayout from "./components/layout/StaffLayout";
+import {
+  StaffDashboard,
+  StaffProfile,
+  StaffAttendance as StaffAttendancePage,
+  StaffNotices,
+} from "./pages/staff/Modules";
+
+// library routes
+import LibraryLayout from "./components/layout/LibraryLayout";
+import {
+  LibraryDashboard,
+  LibraryBooks,
+  LibraryIssueReturn,
+  LibraryHistory,
+} from "./pages/library/Modules";
+
+// canteen routes
+import CanteenLayout from "./components/layout/CanteenLayout";
+import {
+  CanteenDashboard,
+  CanteenItems,
+  CanteenOrderHistory,
+} from "./pages/canteen/Modules";
+
+// transport routes
+import TransportLayout from "./components/layout/TransportLayout";
+import {
+  TransportDashboard,
+  TransportRoutes,
+  TransportDrivers,
+} from "./pages/transport/Modules";
+
 function App() {
   return (
     <Router>
@@ -200,6 +245,96 @@ function App() {
             <Route path="assignments" element={<FacultyAssignments />} />
             <Route path="timetable" element={<FacultyTimetable />} />
             <Route path="announcements" element={<FacultyAnnouncements />} />
+          </Route>
+        </Route>
+
+        {/* Management Routes */}
+        <Route element={<ProtectedRoute allowedRoles={["Manager"]} />}>
+          <Route
+            path="/management"
+            element={
+              <ManagementLayout>
+                <Outlet />
+              </ManagementLayout>
+            }
+          >
+            <Route index element={<Navigate to="dashboard" replace />} />
+            <Route path="dashboard" element={<ManagementDashboard />} />
+            <Route path="finance" element={<ManagementFinance />} />
+            <Route path="reports" element={<ManagementReports />} />
+            <Route path="approvals" element={<ManagementApprovals />} />
+            <Route path="staff" element={<ManagementStaff />} />
+            <Route path="departments" element={<ManagementDepartments />} />
+          </Route>
+        </Route>
+
+        {/* Staff Routes */}
+        <Route element={<ProtectedRoute allowedRoles={["Staff"]} />}>
+          <Route
+            path="/staff"
+            element={
+              <StaffLayout>
+                <Outlet />
+              </StaffLayout>
+            }
+          >
+            <Route index element={<Navigate to="dashboard" replace />} />
+            <Route path="dashboard" element={<StaffDashboard />} />
+            <Route path="profile" element={<StaffProfile />} />
+            <Route path="attendance" element={<StaffAttendancePage />} />
+            <Route path="notices" element={<StaffNotices />} />
+          </Route>
+        </Route>
+
+        {/* Library Routes */}
+        <Route element={<ProtectedRoute allowedRoles={["Librarian"]} />}>
+          <Route
+            path="/library"
+            element={
+              <LibraryLayout>
+                <Outlet />
+              </LibraryLayout>
+            }
+          >
+            <Route index element={<Navigate to="dashboard" replace />} />
+            <Route path="dashboard" element={<LibraryDashboard />} />
+            <Route path="books" element={<LibraryBooks />} />
+            <Route path="issue-return" element={<LibraryIssueReturn />} />
+            <Route path="history" element={<LibraryHistory />} />
+          </Route>
+        </Route>
+
+        {/* Canteen Routes */}
+        <Route element={<ProtectedRoute allowedRoles={["Canteen"]} />}>
+          <Route
+            path="/canteen"
+            element={
+              <CanteenLayout>
+                <Outlet />
+              </CanteenLayout>
+            }
+          >
+            <Route index element={<Navigate to="dashboard" replace />} />
+            <Route path="dashboard" element={<CanteenDashboard />} />
+            <Route path="items" element={<CanteenItems />} />
+            <Route path="history" element={<CanteenOrderHistory />} />
+          </Route>
+        </Route>
+
+        {/* Transport Routes */}
+        <Route element={<ProtectedRoute allowedRoles={["Transport"]} />}>
+          <Route
+            path="/transport"
+            element={
+              <TransportLayout>
+                <Outlet />
+              </TransportLayout>
+            }
+          >
+            <Route index element={<Navigate to="dashboard" replace />} />
+            <Route path="dashboard" element={<TransportDashboard />} />
+            <Route path="routes" element={<TransportRoutes />} />
+            <Route path="drivers" element={<TransportDrivers />} />
           </Route>
         </Route>
       </Routes>

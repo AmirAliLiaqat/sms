@@ -39,6 +39,46 @@ export const AuthProvider = ({ children }) => {
         role: "Teacher",
         avatar: "F",
       };
+    } else if (email.includes("manager")) {
+      dummyUser = {
+        id: "manager-1",
+        name: "School Manager",
+        email: email,
+        role: "Manager",
+        avatar: "M",
+      };
+    } else if (email.includes("staff")) {
+        dummyUser = {
+          id: "staff-1",
+          name: "School Staff",
+          email: email,
+          role: "Staff",
+          avatar: "S",
+        };
+    } else if (email.includes("library") || email.includes("librarian")) {
+        dummyUser = {
+          id: "librarian-1",
+          name: "Librarian",
+          email: email,
+          role: "Librarian",
+          avatar: "L",
+        };
+    } else if (email.includes("canteen")) {
+        dummyUser = {
+          id: "canteen-1",
+          name: "Canteen Staff",
+          email: email,
+          role: "Canteen",
+          avatar: "C",
+        };
+    } else if (email.includes("transport")) {
+        dummyUser = {
+          id: "transport-1",
+          name: "Transport Manager",
+          email: email,
+          role: "Transport",
+          avatar: "T",
+        };
     } else {
       dummyUser = {
         id: "student-1",
@@ -46,7 +86,7 @@ export const AuthProvider = ({ children }) => {
         email: email,
         role: "Student",
         avatar: "S",
-      };
+        };
     }
 
     setUser(dummyUser);

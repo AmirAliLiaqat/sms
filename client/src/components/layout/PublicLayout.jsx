@@ -1,11 +1,9 @@
-import React, { useState } from "react";
+import { useState } from "react";
 import { Link, Outlet, useLocation } from "react-router-dom";
-import { useTheme } from "../../context/ThemeContext";
-import { Menu, X, Sun, Moon, ArrowRight, Phone } from "lucide-react";
+import { Menu, X, ArrowRight } from "lucide-react";
 import { motion, AnimatePresence } from "framer-motion";
 
 const PublicLayout = () => {
-  const { theme, toggleTheme } = useTheme();
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const location = useLocation();
 
