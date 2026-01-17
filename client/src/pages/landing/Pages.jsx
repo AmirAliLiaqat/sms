@@ -1,0 +1,16 @@
+export { default as Vision } from "./Vision";
+export { default as Faculty } from "./Faculty";
+export { default as Management } from "./Management";
+export { default as ClassStructure } from "./ClassStructure";
+export { default as FeeStructure } from "./FeeStructure";
+export { default as Admissions } from "./Admissions";
+export { default as News } from "./News";
+export { default as Blogs } from "./Blogs";
+export { default as Gallery } from "./Gallery";
+export { default as Contact } from "./Contact";
+export { default as Academics } from "./Academics";
+export { default as FacultyProfile } from "./FacultyProfile";
+export { default as SingleBlog } from "./SingleBlog";
+export { default as SingleNews } from "./SingleNews";
+export { default as AcademicCalendar } from "./AcademicCalendar";
+export { default as CampusLife } from "./CampusLife";

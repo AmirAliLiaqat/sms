@@ -1,0 +1,32 @@
+export const mockTeachers = [
+  {
+    id: "T-101",
+    name: "Dr. Sarah Wilson",
+    email: "s.wilson@smshub.edu",
+    department: "Sciences",
+    subject: "Physics",
+    qualification: "Ph.D Physics",
+    phone: "+1 555-0101",
+    status: "Active",
+  },
+  {
+    id: "T-102",
+    name: "Mr. John Doe",
+    email: "j.doe@smshub.edu",
+    department: "Mathematics",
+    subject: "Calculus",
+    qualification: "M.Sc Maths",
+    phone: "+1 555-0102",
+    status: "Active",
+  },
+  {
+    id: "T-103",
+    name: "Mrs. Emily Davis",
+    email: "e.davis@smshub.edu",
+    department: "Languages",
+    subject: "English Literature",
+    qualification: "M.A English",
+    phone: "+1 555-0103",
+    status: "On Leave",
+  },
+];
