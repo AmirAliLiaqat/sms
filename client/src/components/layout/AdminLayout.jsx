@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import { useState } from "react";
 import { Link, useLocation } from "react-router-dom";
 import {
   LayoutDashboard,
@@ -18,6 +18,7 @@ import {
   Settings as SettingsIcon,
   X,
   ChevronRight,
+  ChevronLeft,
   LogOut,
   Menu,
   Building2,
@@ -25,7 +26,7 @@ import {
 import { motion, AnimatePresence } from "framer-motion";
 import { useAuth } from "../../context/AuthContext";
 
-const AdminSidebar = ({ isOpen, setIsOpen }) => {
+const AdminSidebar = ({ isOpen, setIsOpen, isCollapsed, toggleCollapse }) => {
   const location = useLocation();
   const { logout } = useAuth();
 
@@ -65,23 +66,33 @@ const AdminSidebar = ({ isOpen, setIsOpen }) => {
       </AnimatePresence>
 
       <motion.aside
-        className={`fixed left-0 top-0 h-full bg-[#0B1120] text-white z-50 w-72 md:translate-x-0 transition-transform duration-300 flex flex-col ${
+        className={`fixed left-0 top-0 h-full bg-[#0B1120] text-white z-50 md:translate-x-0 transition-all duration-300 flex flex-col ${
           isOpen ? "translate-x-0" : "-translate-x-full"
-        }`}
+        } ${isCollapsed ? "w-20" : "w-72"}`}
       >
         {/* Logo Section */}
-        <div className="h-24 flex items-center px-6 border-b border-white/10">
+        <div className={`h-20 flex items-center ${isCollapsed ? "justify-center px-2" : "px-6"} border-b border-white/10 relative transition-all duration-300`}>
           <div className="flex items-center gap-3">
-            <div className="w-10 h-10 bg-yellow-400 rounded-lg flex items-center justify-center text-[#0B1120] font-bold text-xl">
+            <div className="w-10 h-10 bg-yellow-400 rounded-lg flex items-center justify-center text-[#0B1120] font-bold text-xl shrink-0">
               S
             </div>
-            <div>
-              <h1 className="font-bold text-lg tracking-wide">SMS</h1>
-              <p className="text-[10px] text-gray-400 tracking-widest uppercase">
-                Admin Portal
-              </p>
-            </div>
+            {!isCollapsed && (
+              <div className="overflow-hidden whitespace-nowrap">
+                <h1 className="font-bold text-lg tracking-wide">SMS</h1>
+                <p className="text-[10px] text-gray-400 tracking-widest uppercase">
+                  Admin Portal
+                </p>
+              </div>
+            )}
           </div>
+          
+          <button
+            onClick={toggleCollapse}
+            className="hidden md:flex absolute -right-3 top-1/2 -translate-y-1/2 w-6 h-6 bg-[#FFD60A] text-[#0B1120] rounded-full items-center justify-center cursor-pointer shadow-lg hover:bg-yellow-500 transition-colors z-50"
+          >
+            {isCollapsed ? <ChevronRight size={14} /> : <ChevronLeft size={14} />}
+          </button>
+
           <button
             className="md:hidden ml-auto p-1 text-gray-400"
             onClick={() => setIsOpen(false)}
@@ -99,16 +110,21 @@ const AdminSidebar = ({ isOpen, setIsOpen }) => {
                 key={item.path}
                 to={item.path}
                 onClick={() => setIsOpen(false)}
-                className={`flex items-center gap-3 px-4 py-3 rounded-xl text-sm font-medium transition-all duration-200 ${
+                className={`flex items-center ${isCollapsed ? "justify-center px-2" : "gap-3 px-4"} py-3 rounded-xl text-sm font-medium transition-all duration-200 ${
                   isActive
-                    ? "bg-[#FFD60A] text-[#0B1120] shadow-lg shadow-yellow-400/20 translate-x-1"
+                    ? `bg-[#FFD60A] text-[#0B1120] shadow-lg shadow-yellow-400/20 ${!isCollapsed ? "translate-x-1" : ""}`
                     : "text-gray-400 hover:bg-white/5 hover:text-white"
                 }`}
+                title={isCollapsed ? item.title : ""}
               >
-                <item.icon size={20} />
-                {item.title}
-                {isActive && (
-                  <ChevronRight size={16} className="ml-auto text-[#0B1120]" />
+                <item.icon size={20} className="shrink-0" />
+                {!isCollapsed && (
+                  <>
+                    <span className="truncate">{item.title}</span>
+                    {isActive && (
+                      <ChevronRight size={16} className="ml-auto text-[#0B1120]" />
+                    )}
+                  </>
                 )}
               </Link>
             );
@@ -119,10 +135,11 @@ const AdminSidebar = ({ isOpen, setIsOpen }) => {
         <div className="p-6 border-t border-white/10">
           <button
             onClick={logout}
-            className="flex items-center gap-3 w-full px-4 py-3 text-sm font-bold text-rose-500 hover:bg-rose-500/10 rounded-xl transition-colors"
+            className={`flex items-center ${isCollapsed ? "justify-center" : "gap-3 w-full px-4"} py-2 text-sm font-bold text-rose-500 hover:bg-rose-500/10 rounded-xl transition-colors`}
+            title={isCollapsed ? "Sign Out" : ""}
           >
-            <LogOut size={20} />
-            Sign Out
+            <LogOut size={20} className="shrink-0" />
+            {!isCollapsed && "Sign Out"}
           </button>
         </div>
       </motion.aside>
@@ -132,6 +149,7 @@ const AdminSidebar = ({ isOpen, setIsOpen }) => {
 
 const AdminLayout = ({ children }) => {
   const [sidebarOpen, setSidebarOpen] = useState(false);
+  const [isCollapsed, setIsCollapsed] = useState(false);
   const { user } = useAuth();
   const location = useLocation();
 
@@ -143,9 +161,14 @@ const AdminLayout = ({ children }) => {
 
   return (
     <div className="min-h-screen bg-[#F8FAFC]">
-      <AdminSidebar isOpen={sidebarOpen} setIsOpen={setSidebarOpen} />
+      <AdminSidebar 
+        isOpen={sidebarOpen} 
+        setIsOpen={setSidebarOpen} 
+        isCollapsed={isCollapsed} 
+        toggleCollapse={() => setIsCollapsed(!isCollapsed)} 
+      />
 
-      <div className="md:ml-72 min-h-screen flex flex-col transition-all duration-300">
+      <div className={`${isCollapsed ? "md:ml-20" : "md:ml-72"} min-h-screen flex flex-col transition-all duration-300`}>
         {/* Header */}
         <header className="h-20 bg-white border-b border-slate-100 flex items-center justify-between px-8 sticky top-0 z-30">
           <div className="flex items-center gap-4">

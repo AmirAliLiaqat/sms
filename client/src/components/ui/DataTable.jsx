@@ -10,7 +10,7 @@ import {
 } from "lucide-react";
 import { motion } from "framer-motion";
 
-const DataTable = ({ columns, data, onAdd, addLabel = "Add New" }) => {
+const DataTable = ({ columns, data }) => {
   const [searchTerm, setSearchTerm] = useState("");
   const [currentPage, setCurrentPage] = useState(1);
   const itemsPerPage = 7;
@@ -58,7 +58,7 @@ const DataTable = ({ columns, data, onAdd, addLabel = "Add New" }) => {
             <span>Filter</span>
           </button>
 
-          {onAdd && (
+          {/* {onAdd && (
             <button
               onClick={onAdd}
               className="flex items-center justify-center gap-2 px-5 py-3 bg-[#0B1120] text-white font-bold rounded-xl hover:bg-slate-800 transition-all shadow-lg shadow-slate-200 hover:shadow-xl whitespace-nowrap"
@@ -66,7 +66,7 @@ const DataTable = ({ columns, data, onAdd, addLabel = "Add New" }) => {
               <Plus size={18} />
               {addLabel}
             </button>
-          )}
+          )} */}
         </div>
       </motion.div>
 
