@@ -84,10 +84,11 @@ function App() {
           <Route path="/contact" element={<Contact />} />
           <Route path="/calendar" element={<AcademicCalendar />} />
           <Route path="/campus-life" element={<CampusLife />} />
-          <Route path="/login" element={<Login />} />
-          <Route path="/register" element={<Register />} />
-          <Route path="/forgot-password" element={<ForgotPassword />} />
         </Route>
+
+        <Route path="/login" element={<Login />} />
+        <Route path="/register" element={<Register />} />
+        <Route path="/forgot-password" element={<ForgotPassword />} />
 
         {/* Admin Routes */}
         <Route element={<ProtectedRoute />}>

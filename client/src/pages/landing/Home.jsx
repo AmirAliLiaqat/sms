@@ -286,7 +286,7 @@ const Home = () => {
                     <div className="text-blue-400 font-bold text-[10px] uppercase tracking-widest mb-4 flex items-center gap-2">
                       <Zap size={14} /> {item.date}
                     </div>
-                    <h3 className="text-xl font-black text-white mb-4 group-hover:text-yellow-400 transition-colors leading-tight italic">
+                    <h3 className="text-xl font-black text-white mb-4 group-hover:text-yellow-400 transition-colors leading-tight">
                       {item.title}
                     </h3>
                     <p className="text-slate-400 text-sm font-medium mb-8 flex-1 line-clamp-3">
@@ -318,7 +318,7 @@ const Home = () => {
               </div>
               <h2 className="text-4xl md:text-5xl font-black text-[#0B1120] leading-tight">
                 The Educational <br />
-                <span className="text-blue-600 italic">Perspective</span>
+                <span className="text-blue-600">Perspective</span>
               </h2>
             </div>
             <Link

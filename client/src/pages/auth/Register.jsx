@@ -45,59 +45,7 @@ const Register = () => {
 
   return (
     <div className="h-screen max-h-screen bg-white flex font-sans overflow-hidden">
-      {/* Left Panel: Aesthetic Branding */}
-      <div className="hidden lg:flex w-1/2 bg-[#0B1120] relative items-center justify-center p-20 overflow-hidden">
-        <div className="absolute top-0 right-0 w-2/3 h-full bg-yellow-400/5 -skew-x-12 translate-x-32" />
-        <div className="absolute bottom-0 left-0 w-64 h-64 bg-yellow-400/10 rounded-full blur-[100px] -translate-x-32 translate-y-32" />
-
-        <div className="relative z-10 max-w-lg">
-          <Link
-            to="/"
-            className="inline-flex items-center gap-2 mb-12 text-yellow-400 hover:text-yellow-300 transition-colors group"
-          >
-            <ArrowLeft
-              size={20}
-              className="group-hover:-translate-x-1 transition-transform"
-            />
-            <span className="font-bold uppercase tracking-widest text-xs">
-              Back to Website
-            </span>
-          </Link>
-
-          <div className="w-20 h-20 bg-yellow-400 rounded-[2rem] flex items-center justify-center text-[#0B1120] font-black text-4xl mb-8 shadow-2xl shadow-yellow-400/20">
-            S
-          </div>
-
-          <h1 className="text-6xl font-black text-white leading-tight mb-6 italic tracking-tighter">
-            START YOUR <br />
-            <span className="text-yellow-400 text-7xl not-italic">
-              JOURNEY.
-            </span>
-          </h1>
-
-          <p className="text-slate-400 text-xl font-medium leading-relaxed">
-            Join our modern ecosystem for school management. Efficiency,
-            transparency, and excellence in one place.
-          </p>
-
-          <div className="mt-20 grid grid-cols-2 gap-8">
-            <div>
-              <div className="text-3xl font-black text-white mb-1">500+</div>
-              <div className="text-slate-500 font-bold uppercase tracking-widest text-[10px]">
-                Active Schools
-              </div>
-            </div>
-            <div>
-              <div className="text-3xl font-black text-white mb-1">100k+</div>
-              <div className="text-slate-500 font-bold uppercase tracking-widest text-[10px]">
-                Student Base
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-
-      {/* Right Panel: Clean Registration Form */}
+      {/* Left Panel: Clean Registration Form */}
       <div className="w-full lg:w-1/2 flex items-center justify-center p-8 md:p-16 lg:px-24 bg-white relative overflow-y-auto">
         <div className="w-full max-w-md">
           <div className="mb-12">
@@ -235,6 +183,58 @@ const Register = () => {
                 Sign In here
               </Link>
             </p>
+          </div>
+        </div>
+      </div>
+
+      {/* Right Panel: Aesthetic Branding */}
+      <div className="hidden lg:flex w-1/2 bg-[#0B1120] relative items-center justify-center p-20 overflow-hidden">
+        <div className="absolute top-0 left-0 w-2/3 h-full bg-yellow-400/5 skew-x-12 -translate-x-32" />
+        <div className="absolute bottom-0 right-0 w-64 h-64 bg-yellow-400/10 rounded-full blur-[100px] translate-x-32 translate-y-32" />
+
+        <div className="relative z-10 max-w-lg">
+          <Link
+            to="/"
+            className="inline-flex items-center gap-2 mb-12 text-yellow-400 hover:text-yellow-300 transition-colors group"
+          >
+            <ArrowLeft
+              size={20}
+              className="group-hover:-translate-x-1 transition-transform"
+            />
+            <span className="font-bold uppercase tracking-widest text-xs">
+              Back to Website
+            </span>
+          </Link>
+
+          <div className="w-20 h-20 bg-yellow-400 rounded-[2rem] flex items-center justify-center text-[#0B1120] font-black text-4xl mb-8 shadow-2xl shadow-yellow-400/20">
+            S
+          </div>
+
+          <h1 className="text-6xl font-black text-white leading-tight mb-6 tracking-tighter">
+            START YOUR <br />
+            <span className="text-yellow-400 text-7xl not-italic">
+              JOURNEY.
+            </span>
+          </h1>
+
+          <p className="text-slate-400 text-xl font-medium leading-relaxed">
+            Join our modern ecosystem for school management. Efficiency,
+            transparency, and excellence in one place.
+          </p>
+
+          <div className="mt-20 grid grid-cols-2 gap-8">
+            <div>
+              <div className="text-3xl font-black text-white mb-1">500+</div>
+              <div className="text-slate-500 font-bold uppercase tracking-widest text-[10px]">
+                Active Schools
+              </div>
+            </div>
+            <div>
+              <div className="text-3xl font-black text-white mb-1">100k+</div>
+              <div className="text-slate-500 font-bold uppercase tracking-widest text-[10px]">
+                Student Base
+              </div>
+            </div>
           </div>
         </div>
       </div>

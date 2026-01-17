@@ -51,7 +51,7 @@ const Login = () => {
             S
           </div>
 
-          <h1 className="text-6xl font-black text-white leading-tight mb-6 italic tracking-tighter">
+          <h1 className="text-6xl font-black text-white leading-tight mb-6 tracking-tighter">
             WELCOME <br />
             <span className="text-yellow-400 text-7xl not-italic">BACK.</span>
           </h1>
