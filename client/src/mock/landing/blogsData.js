@@ -12,7 +12,7 @@ export const blogsData = [
       <p>At SMS HUB, we believe that every child has unique potential. Our holistic approach ensures that we nurture not just the mind, but also the heart and soul. We integrate sports, arts, and community service into our core curriculum to provide a well-rounded experience.</p>
       <p>By focusing on holistic development, we prepare our students to face the challenges of the 21st century with confidence and integrity.</p>
     `,
-    color: "bg-blue-600",
+    image: "/images/blogs/holistic.png",
     tags: ["Education", "Holistic", "Future"],
   },
   {
@@ -28,7 +28,7 @@ export const blogsData = [
       <p>Our goal is to assist teachers, not replace them. We use AI to identify learning gaps and provide tailored resources, allowing educators to focus more on mentorship and creative guidance.</p>
       <p>Ethics remain at the forefront of our digital strategy. We teach our students to use AI responsibly and critically, ensuring they become digitally literate citizens of tomorrow.</p>
     `,
-    color: "bg-[#0B1120]",
+    image: "/images/blogs/ai.png",
     tags: ["Technology", "AI", "Ethics"],
   },
   {
@@ -44,7 +44,7 @@ export const blogsData = [
       <p>We have installed solar panels, implemented an organic composting system for our canteen waste, and banned single-use plastics. Our students are the driving force behind these changes, leading the "Green Team" with passion.</p>
       <p>By involving the younger generation in environmental conservation today, we are ensuring a healthier planet for their future.</p>
     `,
-    color: "bg-emerald-600",
+    image: "/images/blogs/green.png",
     tags: ["Sustainability", "Environment", "Campus"],
   },
   {
@@ -55,62 +55,7 @@ export const blogsData = [
     readTime: "6 min read",
     summary: "Exploring how our arts program fosters innovative thinking and emotional expression...",
     content: "<p>Creative expression is essential for brain development. Our arts and music programs are designed to push the boundaries of imagination...</p>",
-    color: "bg-purple-600",
+    image: "/images/blogs/arts.png",
     tags: ["Arts", "Music", "Creativity"],
-  }
-];
-
-export const newsData = [
-  {
-    id: 1,
-    title: "Annual Sports Day 2026: A Celebration of Athletics",
-    date: "Mar 15, 2026",
-    summary:
-      "Get ready for the most awaited event of the year. Our students have been training hard to showcase their sporting excellence.",
-    content: `
-      <p>The annual SMS HUB Sports Day is just around the corner! Scheduled for March 15th, this event promises to be a spectacular display of talent, teamwork, and sportsmanship.</p>
-      <p>From track and field events to team sports like basketball and football, there's something for everyone. This year, we are also introducing a special "Alumni vs Faculty" match which is generating much excitement.</p>
-      <p>We invite all parents and friends to join us in cheering for our young athletes. Let's make this day a memorable celebration of health and vitality!</p>
-    `,
-    category: "Events",
-    image: "bg-blue-600",
-  },
-  {
-    id: 2,
-    title: "Global STEM Innovation Award Winners",
-    date: "Feb 20, 2026",
-    summary:
-      "Our robotic team secured the first position at the International STEM summit held in London. Truly a proud moment for SMS HUB.",
-    content: `
-      <p>History has been made! The SMS HUB Robotics Team, "The CyberGeniuses," has won the prestigious First Place at the Global STEM Innovation Award in London.</p>
-      <p>Competing against over 50 schools from around the world, our students designed an autonomous water purification robot that uses AI to detect pollutants. The judges praised the project for its practical application and innovative engineering.</p>
-      <p>Congratulations to the team and their mentors for this incredible achievement!</p>
-    `,
-    category: "Achievements",
-    image: "bg-yellow-500",
-  },
-  {
-    id: 3,
-    title: "Digital Transformation: New E-Learning Portal",
-    date: "Jan 12, 2026",
-    summary:
-      "We are launching our next-gen student portal which integrates AI-driven personalized learning paths for all grades.",
-    content: `
-      <p>The future of learning is here. SMS HUB is proud to announce the launch of our brand-new E-Learning Portal.</p>
-      <p>This platform isn't just a place to download notes; it's an intelligent ecosystem. It uses machine learning to adapt to each student's pace, offering extra help where needed and advanced challenges for those excelling.</p>
-      <p>Parents can also track real-time progress and receive personalized insights into their child's academic journey.</p>
-    `,
-    category: "Academics",
-    image: "bg-emerald-600",
-  },
-  {
-    id: 4,
-    title: "Community Outreach: Green Campus Initiative",
-    date: "Dec 05, 2025",
-    summary:
-      "The Eco-Club is organizing a massive plantation drive within the city to help combat climate change and spread awareness.",
-    content: "<p>Our commitment to the environment goes beyond our campus walls. The Eco-Club's latest initiative involves planting 1,000 trees across the city...</p>",
-    category: "Community",
-    image: "bg-purple-600",
   }
 ];

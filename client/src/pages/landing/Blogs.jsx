@@ -1,8 +1,8 @@
 import React from "react";
 import { motion } from "framer-motion";
-import { User, Calendar, ArrowRight, BookOpen, Clock } from "lucide-react";
+import { User, Calendar, ArrowRight, Clock } from "lucide-react";
 import { Link } from "react-router-dom";
-import { blogsData } from "../../mock/landingData";
+import { blogsData } from "../../mock/landing/blogsData";
 
 const Blogs = () => {
   const blogs = blogsData;
@@ -58,14 +58,14 @@ const Blogs = () => {
                 className="bg-white rounded-[2.5rem] overflow-hidden shadow-2xl shadow-slate-200/50 border border-slate-100 group flex flex-col h-full"
               >
                 {/* Image Placeholder */}
-                <div
-                  className={`aspect-[16/10] ${blog.color} relative overflow-hidden`}
-                >
-                  <div className="absolute inset-0 bg-black/10 group-hover:bg-transparent transition-all duration-500" />
-                  <div className="h-full w-full flex items-center justify-center">
-                    <BookOpen className="text-white/20" size={64} />
-                  </div>
-                  <div className="absolute bottom-6 left-6 flex items-center gap-2">
+                <div className="aspect-[16/10] relative overflow-hidden">
+                  <img
+                    src={blog.image}
+                    alt={blog.title}
+                    className="absolute inset-0 w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
+                  />
+                  <div className="absolute inset-0 bg-black/20 group-hover:bg-transparent transition-all duration-500" />
+                  <div className="absolute bottom-6 left-6 flex items-center gap-2 z-10">
                     <div className="px-3 py-1 bg-white/20 backdrop-blur-md rounded-lg text-white font-bold text-[10px] uppercase tracking-widest border border-white/20">
                       Featured
                     </div>

@@ -112,6 +112,8 @@ const Settings = () => {
     sitePrimaryColor: "#FFD60A",
     siteSecondaryColor: "#0B1120",
     siteTheme: "light",
+    siteHeroOverlayColor: "#0B1120",
+    siteHeroBackgroundImage: "",
     siteLayout: "modern",
     sitePages: [
       {
@@ -795,6 +797,76 @@ const Settings = () => {
                           />
                         </div>
                       </div>
+
+                      {/* New Hero Section Settings */}
+                      <div className="pt-8 border-t border-slate-100 space-y-8">
+                        <div>
+                          <h4 className="text-sm font-black text-[#0B1120] uppercase tracking-widest mb-1">
+                            Hero Section Styling
+                          </h4>
+                          <p className="text-xs text-slate-500 font-medium">
+                            Customize the main banner appearance across all pages
+                          </p>
+                        </div>
+
+                        <div className="bg-slate-50 p-6 rounded-3xl border border-slate-100 space-y-6">
+                          <div className="space-y-3">
+                            <label className="text-[10px] font-bold text-slate-400 uppercase tracking-widest pl-1">
+                              Overlay Color & Opacity
+                            </label>
+                            <div className="flex items-center gap-4 p-2 bg-white rounded-2xl border border-slate-100 shadow-sm">
+                              <div className="relative group">
+                                <input
+                                  type="color"
+                                  name="siteHeroOverlayColor"
+                                  value={settings.siteHeroOverlayColor}
+                                  onChange={handleChange}
+                                  className="w-14 h-14 rounded-xl cursor-pointer border-none bg-transparent opacity-0 absolute inset-0 z-10"
+                                />
+                                <div
+                                  className="w-14 h-14 rounded-xl border-2 border-slate-100 shadow-sm transition-transform group-hover:scale-105"
+                                  style={{
+                                    backgroundColor:
+                                      settings.siteHeroOverlayColor,
+                                  }}
+                                />
+                              </div>
+                              <div className="flex-1 pr-2">
+                                <input
+                                  type="text"
+                                  name="siteHeroOverlayColor"
+                                  value={settings.siteHeroOverlayColor}
+                                  onChange={handleChange}
+                                  className="w-full font-mono text-sm font-bold text-slate-600 focus:outline-none uppercase"
+                                  placeholder="#0B1120"
+                                />
+                              </div>
+                            </div>
+                          </div>
+
+                          <div className="space-y-3">
+                            <label className="text-[10px] font-bold text-slate-400 uppercase tracking-widest pl-1">
+                              Background Image URL
+                            </label>
+                            <div className="relative group">
+                              <div className="absolute left-4 top-1/2 -translate-y-1/2 text-slate-300 group-focus-within:text-[#FFD60A] transition-colors">
+                                <Palette size={18} />
+                              </div>
+                              <input
+                                type="text"
+                                name="siteHeroBackgroundImage"
+                                value={settings.siteHeroBackgroundImage}
+                                onChange={handleChange}
+                                className="w-full pl-12 pr-4 py-4 rounded-xl bg-white border border-slate-100 font-medium text-sm text-slate-600 focus:outline-none focus:ring-2 focus:ring-[#FFD60A] shadow-sm transition-all"
+                                placeholder="https://example.com/banner.jpg"
+                              />
+                            </div>
+                            <p className="text-[10px] text-slate-400 font-medium pl-1">
+                              *Leave empty to use the default geometric pattern
+                            </p>
+                          </div>
+                        </div>
+                      </div>
                     </div>
 
                     <div className="bg-slate-900 rounded-[2.5rem] p-8 text-white flex flex-col justify-between overflow-hidden relative">
@@ -804,28 +876,46 @@ const Settings = () => {
                           <div className="w-12 h-3 bg-white/20 rounded-full"></div>
                           <div className="flex gap-2">
                             <div
-                              className="w-4 h-4 rounded-full"
+                              className="w-4 h-4 rounded-full shadow-lg border border-white/10"
                               style={{
                                 backgroundColor: settings.sitePrimaryColor,
                               }}
                             ></div>
                             <div
-                              className="w-4 h-4 rounded-full"
+                              className="w-4 h-4 rounded-full shadow-lg border border-white/10"
                               style={{
                                 backgroundColor: settings.siteSecondaryColor,
                               }}
                             ></div>
                           </div>
                         </div>
-                        <div className="space-y-2">
-                          <div className="h-6 bg-white/10 rounded-lg w-full"></div>
-                          <div className="h-6 bg-white/10 rounded-lg w-4/5"></div>
-                          <div className="h-6 bg-white/10 rounded-lg w-2/3"></div>
+
+                        {/* Preview with Overlay */}
+                        <div className="space-y-2 relative rounded-xl overflow-hidden p-4 bg-slate-800/50 border border-white/5">
+                          {settings.siteHeroBackgroundImage && (
+                            <div
+                              className="absolute inset-0 bg-cover bg-center opacity-50"
+                              style={{
+                                backgroundImage: `url(${settings.siteHeroBackgroundImage})`,
+                              }}
+                            />
+                          )}
+                          <div
+                            className="absolute inset-0"
+                            style={{
+                              backgroundColor: settings.siteHeroOverlayColor,
+                              opacity: 0.6,
+                            }}
+                          />
+                          <div className="h-4 bg-white/20 rounded-md w-full relative z-10"></div>
+                          <div className="h-4 bg-white/20 rounded-md w-4/5 relative z-10"></div>
+                          <div className="h-4 bg-white/20 rounded-md w-2/3 relative z-10"></div>
                         </div>
                       </div>
                       <div className="pt-10 flex justify-center">
                         <button
-                          className="px-8 py-3 rounded-full font-black text-[10px] tracking-widest uppercase transition-transform hover:scale-105"
+                          onClick={() => window.open("/", "_blank")}
+                          className="px-8 py-3 rounded-full font-black text-[10px] tracking-widest uppercase transition-transform hover:scale-105 shadow-xl"
                           style={{
                             backgroundColor: settings.sitePrimaryColor,
                             color: settings.siteSecondaryColor,

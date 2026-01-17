@@ -9,7 +9,8 @@ import {
   Shield,
   Zap,
 } from "lucide-react";
-import { blogsData, newsData } from "../../mock/landingData";
+import { newsData } from "../../mock/landing/newsData";
+import { blogsData } from "../../mock/landing/blogsData";
 
 const Home = () => {
   return (
@@ -274,9 +275,14 @@ const Home = () => {
                   transition={{ delay: idx * 0.1 }}
                   className="bg-white/5 border border-white/10 rounded-[2rem] overflow-hidden group hover:bg-white/10 transition-all h-full flex flex-col"
                 >
-                  <div className={`aspect-video ${item.image} relative`}>
+                  <div className="aspect-video relative overflow-hidden">
+                    <img
+                      src={item.image}
+                      alt={item.title}
+                      className="absolute inset-0 w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
+                    />
                     <div className="absolute inset-0 bg-black/20 group-hover:bg-transparent transition-all" />
-                    <div className="absolute top-4 left-4">
+                    <div className="absolute top-4 left-4 z-10">
                       <span className="px-3 py-1 bg-white/10 backdrop-blur-md rounded-lg text-white font-black text-[9px] uppercase tracking-widest border border-white/10">
                         {item.category}
                       </span>
@@ -340,10 +346,12 @@ const Home = () => {
                   className="group"
                 >
                   <div className="relative mb-6 overflow-hidden rounded-[2rem]">
-                    <div
-                      className={`aspect-[4/5] ${blog.color} group-hover:scale-105 transition-transform duration-500 flex items-center justify-center`}
-                    >
-                      <BookOpen size={64} className="text-white/20" />
+                    <div className="aspect-[4/5] group-hover:scale-105 transition-transform duration-500 flex items-center justify-center overflow-hidden">
+                      <img
+                        src={blog.image}
+                        alt={blog.title}
+                        className="w-full h-full object-cover"
+                      />
                     </div>
                     <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity" />
                     <div className="absolute bottom-6 left-6 opacity-0 group-hover:opacity-100 transition-all translate-y-4 group-hover:translate-y-0">

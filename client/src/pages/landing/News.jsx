@@ -1,8 +1,8 @@
 import React from "react";
 import { motion } from "framer-motion";
-import { Calendar, ArrowRight, Bookmark } from "lucide-react";
+import { Calendar, ArrowRight } from "lucide-react";
 import { Link } from "react-router-dom";
-import { newsData } from "../../mock/landingData";
+import { newsData } from "../../mock/landing/newsData";
 
 const News = () => {
   const newsItems = newsData;
@@ -58,17 +58,17 @@ const News = () => {
                 className="bg-white rounded-[2.5rem] overflow-hidden shadow-2xl shadow-slate-200/50 border border-slate-100 flex flex-col md:flex-row group hover:-translate-y-2 transition-all duration-500 h-full"
               >
                 {/* Image Placeholder */}
-                <div
-                  className={`md:w-2/5 min-h-[250px] ${item.image} relative group overflow-hidden`}
-                >
+                <div className="md:w-2/5 min-h-[250px] relative group overflow-hidden">
+                  <img
+                    src={item.image}
+                    alt={item.title}
+                    className="absolute inset-0 w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
+                  />
                   <div className="absolute inset-0 bg-black/20 group-hover:bg-transparent transition-all" />
                   <div className="absolute top-6 left-6 z-10">
                     <span className="px-3 py-1 bg-white/90 backdrop-blur-sm rounded-lg text-[#0B1120] font-black text-[10px] uppercase tracking-widest">
                       {item.category}
                     </span>
-                  </div>
-                  <div className="h-full w-full flex items-center justify-center">
-                    <Bookmark className="text-white/20" size={60} />
                   </div>
                 </div>
 

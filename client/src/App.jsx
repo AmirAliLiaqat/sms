@@ -144,8 +144,8 @@ function App() {
           <Route path="/about" element={<About />} />
           <Route path="/academics" element={<Academics />} />
           <Route path="/vision" element={<Vision />} />
-          <Route path="/faculty" element={<Faculty />} />
-          <Route path="/faculty/:id" element={<FacultyProfile />} />
+          <Route path="/our-faculty" element={<Faculty />} />
+          <Route path="/our-faculty/:id" element={<FacultyProfile />} />
           <Route path="/management" element={<Management />} />
           <Route path="/class-structure" element={<ClassStructure />} />
           <Route path="/fee-structure" element={<FeeStructure />} />

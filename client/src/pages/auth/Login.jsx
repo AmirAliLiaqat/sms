@@ -97,6 +97,22 @@ const Login = () => {
       {/* Right Panel: Clean Login Form */}
       <div className="w-full lg:w-1/2 flex items-center justify-center p-8 md:p-16 lg:p-24 bg-white relative">
         <div className="w-full max-w-md">
+
+          <div className="mb-8 lg:hidden">
+            <Link
+              to="/"
+              className="inline-flex items-center gap-2 text-slate-500 hover:text-[#0B1120] transition-colors group"
+            >
+              <ArrowLeft
+                size={18}
+                className="group-hover:-translate-x-1 transition-transform"
+              />
+              <span className="font-bold uppercase tracking-widest text-xs">
+                Go to Home
+              </span>
+            </Link>
+          </div>
+
           <div className="mb-12">
             <h2 className="text-4xl font-black text-[#0B1120] mb-3">Sign In</h2>
             <p className="text-slate-500 font-medium">

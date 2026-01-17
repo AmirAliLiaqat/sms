@@ -6,10 +6,9 @@ import {
   ArrowLeft,
   Share2,
   Tag,
-  Bookmark,
   MapPin,
 } from "lucide-react";
-import { newsData } from "../../mock/landingData";
+import { newsData } from "../../mock/landing/newsData";
 
 const SingleNews = () => {
   const { id } = useParams();
@@ -94,10 +93,14 @@ const SingleNews = () => {
           <motion.div
             initial={{ opacity: 0, scale: 0.95 }}
             animate={{ opacity: 1, scale: 1 }}
-            className={`w-full aspect-[21/9] ${item.image} rounded-[2.5rem] mb-16 shadow-2xl shadow-slate-200 flex items-center justify-center relative overflow-hidden`}
+            className="w-full aspect-[21/9] rounded-[2.5rem] mb-16 shadow-2xl shadow-slate-200 relative overflow-hidden"
           >
+            <img
+              src={item.image}
+              alt={item.title}
+              className="w-full h-full object-cover"
+            />
             <div className="absolute inset-0 bg-black/10" />
-            <Bookmark className="text-white/20 relative z-10" size={120} />
           </motion.div>
 
           {/* Article Grid */}
@@ -143,10 +146,12 @@ const SingleNews = () => {
                         to={`/news/${recent.id}`}
                         className="flex gap-4 group"
                       >
-                        <div
-                          className={`w-16 h-16 shrink-0 rounded-xl ${recent.image} flex items-center justify-center`}
-                        >
-                          <Bookmark size={18} className="text-white/40" />
+                        <div className="w-16 h-16 shrink-0 rounded-xl overflow-hidden relative">
+                          <img
+                            src={recent.image}
+                            alt={recent.title}
+                            className="w-full h-full object-cover"
+                          />
                         </div>
                         <div>
                           <div className="text-[10px] font-black text-blue-600 uppercase tracking-widest mb-1">

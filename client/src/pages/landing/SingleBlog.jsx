@@ -2,7 +2,7 @@ import React, { useEffect, useState } from "react";
 import { useParams, Link } from "react-router-dom";
 import { motion } from "framer-motion";
 import { User, Calendar, Clock, ArrowLeft, Share2, Tag } from "lucide-react";
-import { blogsData } from "../../mock/landingData";
+import { blogsData } from "../../mock/landing/blogsData";
 
 const SingleBlog = () => {
   const { id } = useParams();
@@ -35,8 +35,15 @@ const SingleBlog = () => {
   return (
     <div className="bg-white min-h-screen font-sans pb-20">
       {/* Hero Section */}
-      <section className={`py-32 ${blog.color} relative overflow-hidden`}>
-        <div className="absolute inset-0 bg-[#0B1120]/20" />
+      <section className="py-32 relative overflow-hidden">
+        <div className="absolute inset-0">
+          <img
+            src={blog.image}
+            alt={blog.title}
+            className="w-full h-full object-cover"
+          />
+          <div className="absolute inset-0 bg-[#0B1120]/70" />
+        </div>
         <div className="container mx-auto px-6 relative z-10">
           <Link
             to="/blogs"

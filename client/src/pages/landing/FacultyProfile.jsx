@@ -1,5 +1,4 @@
-import React from "react";
-import { useParams, Link } from "react-router-dom";
+import { Link } from "react-router-dom";
 import { motion } from "framer-motion";
 import {
   Mail,
@@ -10,55 +9,12 @@ import {
   Award,
   BookOpen,
   Calendar,
-  MapPin,
   ExternalLink,
 } from "lucide-react";
+import { facultyMembers } from "../../mock/landing/facultyData";
 
 const FacultyProfile = () => {
   const { id } = useParams();
-
-  // Mock data matching Faculty.jsx
-  const facultyMembers = [
-    {
-      id: 1,
-      name: "Dr. Sarah Wilson",
-      role: "Principal",
-      subject: "Educational Leadership",
-      bio: "Ph.D. in Education with 20+ years of institutional management experience. Dr. Wilson has led several international schools to academic excellence and is a frequent speaker at educational summits worldwide.",
-      longBio:
-        "Dr. Sarah Wilson is a visionary leader in the field of education. With a doctorate from Stanford University, she has dedicated her career to creating environments where both students and teachers can thrive. Under her leadership, SMS HUB has seen a 40% increase in academic performance and has established several global partnerships. She is passionate about character building and holistic student development, ensuring that our graduates are not just academically bright but also socially responsible citizens.",
-      experience: "22 Years",
-      education: "Ph.D. in Educational Leadership, Stanford University",
-      specialization: [
-        "Institutional Management",
-        "Curriculum Strategy",
-        "Public Speaking",
-      ],
-      email: "s.wilson@smshub.edu",
-      phone: "+1 (555) 123-4567",
-      color: "blue",
-    },
-    {
-      id: 2,
-      name: "Prof. Johnathan Doe",
-      role: "Head of Sciences",
-      subject: "Physics & Astronomy",
-      bio: "Passionate about research and fostering scientific curiosity in young minds.",
-      longBio:
-        "Professor Johnathan Doe brings the wonders of the cosmos to the classroom. With a background in Astrophysics and years of research at national laboratories, he specializes in making complex scientific concepts accessible to students. His hands-on approach to experimental physics has inspired many students to pursue careers in STEM.",
-      experience: "15 Years",
-      education: "M.Sc. in Astrophysics, MIT",
-      specialization: [
-        "Quantum Mechanics",
-        "Observational Astronomy",
-        "Robotics",
-      ],
-      email: "j.doe@smshub.edu",
-      phone: "+1 (555) 234-5678",
-      color: "yellow",
-    },
-    // Add more if needed, but for now we search for the specific ID
-  ];
 
   const member =
     facultyMembers.find((m) => m.id === parseInt(id)) || facultyMembers[0];
@@ -77,7 +33,7 @@ const FacultyProfile = () => {
 
         <div className="container mx-auto px-6 relative z-10">
           <Link
-            to="/faculty"
+            to="/our-faculty"
             className="inline-flex items-center gap-2 text-yellow-400 hover:text-yellow-300 font-bold uppercase tracking-widest text-xs mb-12 group transition-all"
           >
             <ArrowLeft
@@ -93,11 +49,11 @@ const FacultyProfile = () => {
               animate={{ opacity: 1, scale: 1 }}
               className="w-48 h-48 md:w-64 md:h-64 rounded-[3rem] bg-slate-800 border-4 border-white/10 overflow-hidden relative group shrink-0 shadow-2xl"
             >
-              <div className="w-full h-full bg-slate-700 flex items-center justify-center">
-                <span className="text-white text-7xl font-black">
-                  {member.name.charAt(0)}
-                </span>
-              </div>
+              <img
+                src={member.image}
+                alt={member.name}
+                className="w-full h-full object-cover"
+              />
             </motion.div>
 
             <motion.div
@@ -109,7 +65,7 @@ const FacultyProfile = () => {
               <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-yellow-400/20 border border-yellow-400/30 text-yellow-400 font-bold text-xs uppercase tracking-widest mb-6">
                 {member.role}
               </div>
-              <h1 className="text-5xl lg:text-7xl font-black text-white leading-tight mb-4 tracking-tighter italic">
+              <h1 className="text-5xl lg:text-7xl font-black text-white leading-tight mb-4 tracking-tighter">
                 {member.name.toUpperCase()}
               </h1>
               <p className="text-xl text-slate-400 font-medium max-w-2xl">

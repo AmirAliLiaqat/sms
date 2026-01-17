@@ -1,17 +1,15 @@
 import React from "react";
 import { motion } from "framer-motion";
 import {
-  Book,
   Brain,
-  Award,
-  Calendar,
   ChevronRight,
   CheckCircle2,
-  FlaskConical,
-  Languages,
-  Music,
 } from "lucide-react";
 import { Link } from "react-router-dom";
+import {
+  pedagogyFeatures,
+  majorDisciplines,
+} from "../../mock/landing/academicsData";
 
 const Academics = () => {
   const fadeIn = {
@@ -69,12 +67,7 @@ const Academics = () => {
               problem-solving, and practical application.
             </p>
             <div className="grid md:grid-cols-2 gap-6">
-              {[
-                "Holistic Development",
-                "Project-based Learning",
-                "Integrated Technology",
-                "Personalized Attention",
-              ].map((item, i) => (
+              {pedagogyFeatures.map((item, i) => (
                 <div key={i} className="flex items-center gap-3">
                   <div className="w-6 h-6 rounded-full bg-green-500/10 flex items-center justify-center">
                     <CheckCircle2 size={16} className="text-green-600" />
@@ -124,12 +117,7 @@ const Academics = () => {
           </div>
 
           <div className="grid md:grid-cols-4 gap-8">
-            {[
-              { title: "Sciences", icon: FlaskConical, color: "bg-blue-600" },
-              { title: "Humanities", icon: Languages, color: "bg-yellow-500" },
-              { title: "Arts & Music", icon: Music, color: "bg-purple-600" },
-              { title: "Mathematics", icon: Award, color: "bg-emerald-600" },
-            ].map((d, i) => (
+            {majorDisciplines.map((d, i) => (
               <motion.div
                 key={i}
                 whileHover={{ y: -10 }}

@@ -1,39 +1,12 @@
 import React from "react";
 import { motion } from "framer-motion";
-import { GraduationCap, Users, Trophy, Target } from "lucide-react";
+import { stats } from "../../mock/landing/aboutData";
 
 const About = () => {
   const fadeIn = {
     hidden: { opacity: 0, y: 20 },
     visible: { opacity: 1, y: 0, transition: { duration: 0.6 } },
   };
-
-  const stats = [
-    {
-      icon: GraduationCap,
-      label: "Total Alumni",
-      value: "15,000+",
-      color: "bg-blue-600",
-    },
-    {
-      icon: Users,
-      label: "Expert Teachers",
-      value: "200+",
-      color: "bg-yellow-500",
-    },
-    {
-      icon: Trophy,
-      label: "National Awards",
-      value: "45+",
-      color: "bg-purple-600",
-    },
-    {
-      icon: Target,
-      label: "University Placement",
-      value: "98%",
-      color: "bg-emerald-500",
-    },
-  ];
 
   return (
     <div className="bg-slate-50 min-h-screen font-sans">

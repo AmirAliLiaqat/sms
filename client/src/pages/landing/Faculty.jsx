@@ -3,57 +3,9 @@ import { motion } from "framer-motion";
 import { Link } from "react-router-dom";
 import { Mail, Clock, Phone, Linkedin, Search } from "lucide-react";
 
+import { facultyMembers } from "../../mock/landing/facultyData";
+
 const Faculty = () => {
-  const facultyMembers = [
-    {
-      id: 1,
-      name: "Dr. Sarah Wilson",
-      role: "Principal",
-      subject: "Educational Leadership",
-      bio: "Ph.D. in Education with 20+ years of institutional management experience.",
-      color: "blue",
-    },
-    {
-      id: 2,
-      name: "Prof. Johnathan Doe",
-      role: "Head of Sciences",
-      subject: "Physics & Astronomy",
-      bio: "Passionate about research and fostering scientific curiosity in young minds.",
-      color: "yellow",
-    },
-    {
-      id: 3,
-      name: "Mrs. Emily Richardson",
-      role: "Senior Lead",
-      subject: "Higher Mathematics",
-      bio: "Award-winning educator specializing in advanced calculus and statistics.",
-      color: "purple",
-    },
-    {
-      id: 4,
-      name: "Mr. Robert Sterling",
-      role: "Dean of Arts",
-      subject: "Modern Literature",
-      bio: "Published author and critic focusing on contemporary creative writing.",
-      color: "emerald",
-    },
-    {
-      id: 5,
-      name: "Ms. Anita Varma",
-      role: "Director of Sports",
-      subject: "Athletic Excellence",
-      bio: "Former national athlete dedicated to holistic student wellness and fitness.",
-      color: "rose",
-    },
-    {
-      id: 6,
-      name: "Dr. Michael Zhang",
-      role: "Tech Strategist",
-      subject: "Artificial Intelligence",
-      bio: "Leading our digital transformation and STEM innovation programs.",
-      color: "indigo",
-    },
-  ];
 
   const fadeIn = {
     hidden: { opacity: 0, y: 20 },
@@ -126,12 +78,13 @@ const Faculty = () => {
               }}
               className="group bg-white rounded-[2.5rem] overflow-hidden border border-slate-100 shadow-xl shadow-slate-200/50 hover:shadow-2xl transition-all duration-500 hover:-translate-y-2"
             >
-              {/* Photo Placeholder */}
-              <div className="aspect-[4/3] bg-slate-100 relative overflow-hidden group">
-                <div className="absolute inset-0 bg-gradient-to-t from-[#0B1120]/60 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500 z-10" />
-                <div className="w-full h-full bg-slate-200 flex items-center justify-center">
-                  <User className="text-slate-300" size={80} />
-                </div>
+              <div className="aspect-[4/3] relative overflow-hidden group">
+                <img
+                  src={member.image}
+                  alt={member.name}
+                  className="w-full h-full object-cover grayscale group-hover:grayscale-0 transition-all duration-500 scale-100 group-hover:scale-105"
+                />
+                <div className="absolute inset-0 bg-gradient-to-t from-[#0B1120] to-transparent opacity-60 group-hover:opacity-0 transition-opacity duration-500 z-10" />
                 <div className="absolute bottom-6 left-6 z-20 translate-y-10 opacity-0 group-hover:translate-y-0 group-hover:opacity-100 transition-all duration-500">
                   <div className="flex gap-3">
                     <button className="w-10 h-10 rounded-xl bg-white text-[#0B1120] flex items-center justify-center hover:bg-yellow-400 transition-colors shadow-lg">
@@ -167,7 +120,7 @@ const Faculty = () => {
 
                 <div className="flex items-center gap-6 pt-6 border-t border-slate-50">
                   <Link
-                    to={`/faculty/${member.id}`}
+                    to={`/our-faculty/${member.id}`}
                     className="text-xs font-bold uppercase tracking-widest text-[#0B1120] flex items-center gap-2 group/btn"
                   >
                     View Profile

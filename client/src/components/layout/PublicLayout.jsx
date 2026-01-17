@@ -11,7 +11,7 @@ const PublicLayout = () => {
     { name: "Home", path: "/" },
     { name: "About", path: "/about" },
     { name: "Academics", path: "/academics" },
-    { name: "Faculty", path: "/faculty" },
+    { name: "Faculty", path: "/our-faculty" },
     { name: "Admissions", path: "/admissions" },
     { name: "News", path: "/news" },
     { name: "Contact", path: "/contact" },
@@ -201,7 +201,7 @@ const PublicLayout = () => {
                   { name: "Academic Calendar", path: "/calendar" },
                   { name: "Class Structure", path: "/class-structure" },
                   { name: "Fee Information", path: "/fee-structure" },
-                  { name: "Our Faculty", path: "/faculty" },
+                  { name: "Our Faculty", path: "/our-faculty" },
                   { name: "Student Blogs", path: "/blogs" },
                 ].map((item) => (
                   <li key={item.name}>
