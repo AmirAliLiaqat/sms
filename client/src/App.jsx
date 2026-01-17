@@ -60,6 +60,21 @@ import {
   NewsAdmin,
 } from "./pages/admin/Modules";
 
+import StudentLayout from "./components/layout/StudentLayout";
+import {
+  StudentDashboard,
+  StudentProfile,
+  StudentClassDetails,
+  StudentTimeTable,
+  StudentAttendance,
+  StudentExams,
+  StudentFees,
+  StudentLibrary,
+  StudentNotices,
+  StudentSubmissions,
+  StudentChangePassword,
+} from "./pages/student/Modules";
+
 function App() {
   return (
     <Router>
@@ -91,7 +106,7 @@ function App() {
         <Route path="/forgot-password" element={<ForgotPassword />} />
 
         {/* Admin Routes */}
-        <Route element={<ProtectedRoute />}>
+        <Route element={<ProtectedRoute allowedRoles={["Admin"]} />}>
           <Route
             path="/admin"
             element={
@@ -123,6 +138,31 @@ function App() {
             <Route path="news" element={<NewsAdmin />} />
             <Route path="blogs" element={<BlogsAdmin />} />
             <Route path="settings" element={<Settings />} />
+          </Route>
+        </Route>
+
+        {/* Student Routes */}
+        <Route element={<ProtectedRoute allowedRoles={["Student"]} />}>
+          <Route
+            path="/student"
+            element={
+              <StudentLayout>
+                <Outlet />
+              </StudentLayout>
+            }
+          >
+            <Route index element={<Navigate to="dashboard" replace />} />
+            <Route path="dashboard" element={<StudentDashboard />} />
+            <Route path="profile" element={<StudentProfile />} />
+            <Route path="class" element={<StudentClassDetails />} />
+            <Route path="timetable" element={<StudentTimeTable />} />
+            <Route path="attendance" element={<StudentAttendance />} />
+            <Route path="exams" element={<StudentExams />} />
+            <Route path="fees" element={<StudentFees />} />
+            <Route path="library" element={<StudentLibrary />} />
+            <Route path="notices" element={<StudentNotices />} />
+            <Route path="submissions" element={<StudentSubmissions />} />
+            <Route path="change-password" element={<StudentChangePassword />} />
           </Route>
         </Route>
       </Routes>

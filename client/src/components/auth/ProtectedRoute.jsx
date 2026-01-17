@@ -21,7 +21,9 @@ const ProtectedRoute = ({ allowedRoles }) => {
   }
 
   if (allowedRoles && !allowedRoles.includes(user.role)) {
-    // Redirect to a specialized 403 page or dashboard if authorized but wrong role
+    if (user.role === "Student") {
+      return <Navigate to="/student/dashboard" replace />;
+    }
     return <Navigate to="/admin/dashboard" replace />;
   }
 

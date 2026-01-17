@@ -21,14 +21,25 @@ export const AuthProvider = ({ children }) => {
     // Simulate API delay
     await new Promise((resolve) => setTimeout(resolve, 800));
 
-    // Simple dummy logic: Allow any login for now as requested
-    const dummyUser = {
-      id: "admin-1",
-      name: "Super Admin",
-      email: email,
-      role: "Admin",
-      avatar: "S",
-    };
+    let dummyUser;
+
+    if (email.includes("admin")) {
+      dummyUser = {
+        id: "admin-1",
+        name: "Super Admin",
+        email: email,
+        role: "Admin",
+        avatar: "A",
+      };
+    } else {
+      dummyUser = {
+        id: "student-1",
+        name: "Student User",
+        email: email,
+        role: "Student",
+        avatar: "S",
+      };
+    }
 
     setUser(dummyUser);
     localStorage.setItem("sms_user", JSON.stringify(dummyUser));

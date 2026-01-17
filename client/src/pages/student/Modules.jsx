@@ -1,0 +1,11 @@
+export { default as StudentDashboard } from "./StudentDashboard";
+export { default as StudentProfile } from "./StudentProfile";
+export { default as StudentClassDetails } from "./StudentClassDetails";
+export { default as StudentTimeTable } from "./StudentTimeTable";
+export { default as StudentAttendance } from "./StudentAttendance";
+export { default as StudentExams } from "./StudentExams";
+export { default as StudentFees } from "./StudentFees";
+export { default as StudentLibrary } from "./StudentLibrary";
+export { default as StudentNotices } from "./StudentNotices";
+export { default as StudentSubmissions } from "./StudentSubmissions";
+export { default as StudentChangePassword } from "./StudentChangePassword";
