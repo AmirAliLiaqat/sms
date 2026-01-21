@@ -127,6 +127,19 @@ const Login = () => {
             <button
               type="button"
               onClick={() => {
+                setEmail("superadmin@sms.com");
+                setPassword("password");
+              }}
+              className="p-3 bg-slate-50 border border-slate-100 rounded-xl text-xs font-bold text-slate-600 hover:bg-yellow-50 hover:border-yellow-200 hover:text-yellow-700 transition-all text-left"
+            >
+              <div className="uppercase tracking-wider text-[10px] text-slate-400 mb-1">
+                Demo SuperAdmin
+              </div>
+              superadmin@...
+            </button>
+            <button
+              type="button"
+              onClick={() => {
                 setEmail("admin@sms.com");
                 setPassword("password");
               }}
@@ -227,19 +240,6 @@ const Login = () => {
                 Demo Transport
               </div>
               transport@sms...
-            </button>
-            <button
-              type="button"
-              onClick={() => {
-                setEmail("superadmin@sms.com");
-                setPassword("password");
-              }}
-              className="p-3 bg-indigo-50 border border-indigo-100 rounded-xl text-xs font-bold text-indigo-700 hover:bg-indigo-600 hover:text-white transition-all text-left shadow-lg shadow-indigo-100/50"
-            >
-              <div className="uppercase tracking-wider text-[10px] opacity-70 mb-1">
-                Demo SuperAdmin
-              </div>
-              superadmin@...
             </button>
           </div>
 
