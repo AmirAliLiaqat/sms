@@ -23,10 +23,18 @@ export const AuthProvider = ({ children }) => {
 
     let dummyUser;
 
-    if (email.includes("admin")) {
+    if (email.includes("superadmin")) {
+      dummyUser = {
+        id: "super-admin-1",
+        name: "Global Controller",
+        email: email,
+        role: "SuperAdmin",
+        avatar: "S",
+      };
+    } else if (email.includes("admin")) {
       dummyUser = {
         id: "admin-1",
-        name: "Super Admin",
+        name: "School Admin",
         email: email,
         role: "Admin",
         avatar: "A",
@@ -48,37 +56,37 @@ export const AuthProvider = ({ children }) => {
         avatar: "M",
       };
     } else if (email.includes("staff")) {
-        dummyUser = {
-          id: "staff-1",
-          name: "School Staff",
-          email: email,
-          role: "Staff",
-          avatar: "S",
-        };
+      dummyUser = {
+        id: "staff-1",
+        name: "School Staff",
+        email: email,
+        role: "Staff",
+        avatar: "S",
+      };
     } else if (email.includes("library") || email.includes("librarian")) {
-        dummyUser = {
-          id: "librarian-1",
-          name: "Librarian",
-          email: email,
-          role: "Librarian",
-          avatar: "L",
-        };
+      dummyUser = {
+        id: "librarian-1",
+        name: "Librarian",
+        email: email,
+        role: "Librarian",
+        avatar: "L",
+      };
     } else if (email.includes("canteen")) {
-        dummyUser = {
-          id: "canteen-1",
-          name: "Canteen Staff",
-          email: email,
-          role: "Canteen",
-          avatar: "C",
-        };
+      dummyUser = {
+        id: "canteen-1",
+        name: "Canteen Staff",
+        email: email,
+        role: "Canteen",
+        avatar: "C",
+      };
     } else if (email.includes("transport")) {
-        dummyUser = {
-          id: "transport-1",
-          name: "Transport Manager",
-          email: email,
-          role: "Transport",
-          avatar: "T",
-        };
+      dummyUser = {
+        id: "transport-1",
+        name: "Transport Manager",
+        email: email,
+        role: "Transport",
+        avatar: "T",
+      };
     } else {
       dummyUser = {
         id: "student-1",
@@ -86,7 +94,7 @@ export const AuthProvider = ({ children }) => {
         email: email,
         role: "Student",
         avatar: "S",
-        };
+      };
     }
 
     setUser(dummyUser);

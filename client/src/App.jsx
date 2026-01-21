@@ -134,6 +134,18 @@ import {
   TransportDrivers,
 } from "./pages/transport/Modules";
 
+// super admin routes
+import SuperAdminLayout from "./components/layout/SuperAdminLayout";
+import {
+  Dashboard as SuperAdminDashboard,
+  Schools as SuperAdminSchools,
+  Portals as SuperAdminPortals,
+  Subscriptions as SuperAdminSubscriptions,
+  Infrastructure as SuperAdminInfrastructure,
+  Support as SuperAdminSupport,
+  SuperAdminSettings,
+} from "./pages/super-admin/Modules";
+
 function App() {
   return (
     <Router>
@@ -335,6 +347,27 @@ function App() {
             <Route path="dashboard" element={<TransportDashboard />} />
             <Route path="routes" element={<TransportRoutes />} />
             <Route path="drivers" element={<TransportDrivers />} />
+          </Route>
+        </Route>
+
+        {/* Super Admin Routes */}
+        <Route element={<ProtectedRoute allowedRoles={["SuperAdmin"]} />}>
+          <Route
+            path="/super-admin"
+            element={
+              <SuperAdminLayout>
+                <Outlet />
+              </SuperAdminLayout>
+            }
+          >
+            <Route index element={<Navigate to="dashboard" replace />} />
+            <Route path="dashboard" element={<SuperAdminDashboard />} />
+            <Route path="schools" element={<SuperAdminSchools />} />
+            <Route path="portals" element={<SuperAdminPortals />} />
+            <Route path="subscriptions" element={<SuperAdminSubscriptions />} />
+            <Route path="infrastructure" element={<SuperAdminInfrastructure />} />
+            <Route path="support" element={<SuperAdminSupport />} />
+            <Route path="settings" element={<SuperAdminSettings />} />
           </Route>
         </Route>
       </Routes>

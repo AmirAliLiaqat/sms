@@ -32,6 +32,8 @@ const Login = () => {
         navigate("/canteen/dashboard");
       } else if (res.data?.user?.role === "Transport") {
         navigate("/transport/dashboard");
+      } else if (res.data?.user?.role === "SuperAdmin") {
+        navigate("/super-admin/dashboard");
       } else {
         navigate("/admin/dashboard");
       }
@@ -187,7 +189,7 @@ const Login = () => {
               </div>
               staff@sms...
             </button>
-             <button
+            <button
               type="button"
               onClick={() => {
                 setEmail("library@sms.com");
@@ -200,7 +202,7 @@ const Login = () => {
               </div>
               library@sms...
             </button>
-             <button
+            <button
               type="button"
               onClick={() => {
                 setEmail("canteen@sms.com");
@@ -213,7 +215,7 @@ const Login = () => {
               </div>
               canteen@sms...
             </button>
-             <button
+            <button
               type="button"
               onClick={() => {
                 setEmail("transport@sms.com");
@@ -225,6 +227,19 @@ const Login = () => {
                 Demo Transport
               </div>
               transport@sms...
+            </button>
+            <button
+              type="button"
+              onClick={() => {
+                setEmail("superadmin@sms.com");
+                setPassword("password");
+              }}
+              className="p-3 bg-indigo-50 border border-indigo-100 rounded-xl text-xs font-bold text-indigo-700 hover:bg-indigo-600 hover:text-white transition-all text-left shadow-lg shadow-indigo-100/50"
+            >
+              <div className="uppercase tracking-wider text-[10px] opacity-70 mb-1">
+                Demo SuperAdmin
+              </div>
+              superadmin@...
             </button>
           </div>
 

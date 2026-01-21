@@ -20,7 +20,7 @@ const Register = () => {
     email: "",
     password: "",
     phone: "",
-    role: "Admin", // Default role for testing
+    role: "Admin", // Default role
   });
 
   const handleChange = (e) => {
@@ -143,6 +143,35 @@ const Register = () => {
                   className="w-full pl-14 pr-6 py-5 bg-slate-50 border border-slate-100 rounded-[1.5rem] focus:bg-white focus:border-yellow-400 focus:ring-4 focus:ring-yellow-400/10 outline-none transition-all font-bold text-slate-800"
                   placeholder="+1 (555) 000-0000"
                 />
+              </div>
+            </div>
+
+            {/* Role selection for demonstration */}
+            <div className="space-y-2">
+              <label className="text-[10px] font-black uppercase tracking-[0.2em] text-slate-400 ml-1">
+                Account Type
+              </label>
+              <div className="relative flex gap-4">
+                <button
+                  type="button"
+                  onClick={() => setFormData({ ...formData, role: "Admin" })}
+                  className={`flex-1 py-4 rounded-2xl font-black text-xs uppercase tracking-widest transition-all ${formData.role === "Admin"
+                      ? "bg-yellow-400 text-[#0B1120] shadow-lg shadow-yellow-400/20"
+                      : "bg-slate-50 text-slate-400 hover:bg-slate-100"
+                    }`}
+                >
+                  School Admin
+                </button>
+                <button
+                  type="button"
+                  onClick={() => setFormData({ ...formData, role: "SuperAdmin" })}
+                  className={`flex-1 py-4 rounded-2xl font-black text-xs uppercase tracking-widest transition-all ${formData.role === "SuperAdmin"
+                      ? "bg-indigo-600 text-white shadow-lg shadow-indigo-600/20"
+                      : "bg-slate-50 text-slate-400 hover:bg-slate-100"
+                    }`}
+                >
+                  Super Admin
+                </button>
               </div>
             </div>
 
