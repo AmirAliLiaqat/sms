@@ -11,10 +11,8 @@ import {
   AlertTriangle,
   Server,
   Key,
-  Mail,
   Smartphone,
   CheckCircle2,
-  XCircle,
   ArrowRight
 } from "lucide-react";
 import { motion } from "framer-motion";

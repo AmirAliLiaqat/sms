@@ -1,20 +1,13 @@
 import { useState } from "react";
 import {
-  BarChart3,
   Users,
   School,
-  CheckCircle2,
-  Clock,
-  AlertTriangle,
-  ArrowUpRight,
   TrendingUp,
   Globe,
   Database,
   ArrowRight,
   TrendingDown,
   Activity,
-  Zap,
-  ShieldCheck,
   XCircle,
   ExternalLink,
   MessageSquare

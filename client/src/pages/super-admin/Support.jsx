@@ -3,17 +3,11 @@ import {
   MessageSquare,
   LifeBuoy,
   Inbox,
-  Send,
   Search,
-  Filter,
   CheckCircle2,
   AlertTriangle,
   Clock,
   User,
-  Globe,
-  Phone,
-  Mail,
-  MoreVertical,
   ChevronRight,
   ArrowRight
 } from "lucide-react";
@@ -85,8 +79,8 @@ const Support = () => {
                 >
                   <div className="flex items-center gap-6">
                     <div className={`w-14 h-14 rounded-2xl flex items-center justify-center text-white shadow-lg ${ticket.priority === 'Critical' ? 'bg-rose-600' :
-                        ticket.priority === 'High' ? 'bg-amber-600' :
-                          ticket.priority === 'Medium' ? 'bg-indigo-600' : 'bg-blue-600'
+                      ticket.priority === 'High' ? 'bg-amber-600' :
+                        ticket.priority === 'Medium' ? 'bg-indigo-600' : 'bg-blue-600'
                       }`}>
                       <LifeBuoy size={24} />
                     </div>
@@ -94,7 +88,7 @@ const Support = () => {
                       <div className="flex items-center gap-2 mb-1">
                         <span className="text-[10px] font-black uppercase tracking-widest text-slate-400 font-mono">{ticket.id}</span>
                         <span className={`px-2 py-0.5 rounded text-[8px] font-black uppercase tracking-tight ${ticket.status === 'Open' ? 'bg-rose-50 text-rose-600' :
-                            ticket.status === 'Assigned' ? 'bg-blue-50 text-blue-600' : 'bg-emerald-50 text-emerald-600'
+                          ticket.status === 'Assigned' ? 'bg-blue-50 text-blue-600' : 'bg-emerald-50 text-emerald-600'
                           }`}>{ticket.status}</span>
                       </div>
                       <h4 className="font-black text-slate-900 group-hover:text-indigo-600 transition-colors uppercase tracking-tight">{ticket.subject}</h4>

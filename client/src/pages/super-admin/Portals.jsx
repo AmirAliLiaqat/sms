@@ -1,7 +1,6 @@
 import { useState } from "react";
 import {
   Globe,
-  Settings,
   Eye,
   EyeOff,
   Edit3,
@@ -11,17 +10,12 @@ import {
   ShieldCheck,
   Zap,
   Layers,
-  Search,
   CheckCircle2,
   AlertCircle,
   Plus,
-  XCircle,
   Link,
-  Shield,
-  CreditCard,
   ArrowRight
 } from "lucide-react";
-import { motion, AnimatePresence } from "framer-motion";
 import SuperAdminModal from "../../components/shared/SuperAdminModal";
 
 const Portals = () => {

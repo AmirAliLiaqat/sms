@@ -1,4 +1,4 @@
-import { useState, useEffect } from "react";
+import { useState } from "react";
 import {
   Server,
   Database,
@@ -10,12 +10,8 @@ import {
   Zap,
   Terminal,
   RefreshCcw,
-  AlertTriangle,
   CheckCircle2,
-  Lock,
-  Search,
-  ChevronRight,
-  Clock,
+  Plus,
   ExternalLink
 } from "lucide-react";
 import { motion } from "framer-motion";
@@ -166,8 +162,8 @@ const Infrastructure = () => {
               <div key={log.id} className="group relative pl-4 border-l-2 border-white/10 hover:border-indigo-500 transition-colors">
                 <div className="flex items-center justify-between mb-1">
                   <span className={`text-[8px] font-black uppercase tracking-[0.2em] ${log.level === 'error' ? 'text-rose-400' :
-                      log.level === 'warning' ? 'text-amber-400' :
-                        log.level === 'success' ? 'text-emerald-400' : 'text-indigo-400'
+                    log.level === 'warning' ? 'text-amber-400' :
+                      log.level === 'success' ? 'text-emerald-400' : 'text-indigo-400'
                     }`}>{log.type}</span>
                   <span className="text-[8px] font-bold text-slate-500">{log.time}</span>
                 </div>

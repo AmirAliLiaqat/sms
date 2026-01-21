@@ -1,17 +1,11 @@
 import { useState } from "react";
 import {
-  CreditCard,
   TrendingUp,
-  Users,
-  Calendar,
   ArrowUpRight,
   ArrowDownRight,
   Download,
   Filter,
-  Search,
   CheckCircle2,
-  Clock,
-  AlertCircle,
   Plus,
   DollarSign,
   Package,
