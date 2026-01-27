@@ -1,5 +1,5 @@
-import React from "react";
 import { motion } from "framer-motion";
+import { ArrowRight } from "lucide-react";
 import { stats } from "../../mock/landing/aboutData";
 
 const About = () => {
@@ -126,7 +126,7 @@ const About = () => {
               <div className="pt-4">
                 <button className="px-8 py-4 bg-[#0B1120] text-white rounded-xl font-bold text-lg hover:bg-slate-800 transition-all shadow-xl shadow-slate-200 flex items-center gap-2 group">
                   Read Our History{" "}
-                  <Target
+                  <ArrowRight
                     size={20}
                     className="group-hover:translate-x-1 transition-transform"
                   />
