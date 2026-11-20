@@ -1,12 +1,18 @@
 {
   "name": "school-management-system",
   "version": "1.0.0",
-  "description": "",
+  "private": true,
+  "description": "School Management System with a React/Vite frontend and an Express/MongoDB backend",
   "license": "ISC",
-  "author": "",
-  "type": "commonjs",
-  "main": "index.js",
+  "engines": {
+    "node": ">=20.19.0"
+  },
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "install:all": "pnpm --dir frontend install && pnpm --dir backend install",
+    "dev:frontend": "pnpm --dir frontend dev",
+    "dev:backend": "pnpm --dir backend dev",
+    "build": "pnpm --dir frontend build",
+    "lint": "pnpm --dir frontend lint",
+    "start:backend": "pnpm --dir backend start"
   }
 }
