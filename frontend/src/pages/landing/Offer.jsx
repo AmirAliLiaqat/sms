@@ -394,6 +394,7 @@ const collegeModels = [
 
 const tabs = [
   { id: "system", label: "TaleemFlow System" },
+  { id: "benefits", label: "Benefits" },
   { id: "script", label: "Meeting Script" },
   { id: "offers", label: "Offers" },
   { id: "plans", label: "Plans" },
@@ -803,6 +804,148 @@ function CollegeTab() {
   );
 }
 
+const benefitGroups = [
+  {
+    title: "Principal aur Owner ke faide",
+    color: "#2E7CF6",
+    items: [
+      { t: "Poora school ek nazar me", d: "Kitne bachay hain, kitni fees aayi, kitne teacher hazir hain: sab kuch apne mobile par, school aaye baghair bhi." },
+      { t: "Fees ka ek ek rupay ka hisaab", d: "Kis ne fees di, kis ki baqi hai, kitni dair se baqi hai: ek click par list. Paisa gum honay ya bhool janay ka sawal hi paida nahi hota." },
+      { t: "Koi record gum nahi ho sakta", d: "Register gum ho jaye, bhar jaye ya kharab ho jaye to saalon ka record khatam. System me record hamesha mehfooz rehta hai." },
+      { t: "Purana record ek minute me", d: "Teen saal purane bachay ki fees ya result chahiye? Naam likhein, record samne. Files ke dhair me dhundna khatam." },
+      { t: "Staff ki karkardagi samne", d: "Konsa teacher waqt par aata hai, kis class ka result acha hai: sab reports me wazeh. Faislay andazay se nahi, maloomat se." },
+      { t: "Ghar baithe bhi nazar", d: "Chutti wale din ya sheher se bahir hon, school ki poori report mobile par hazir." },
+      { t: "Monthly report khud tayyar", d: "Mahine ke aakhir par income, kharcha aur hazri ki report khud ban jati hai. Ghanton ka kaam minutes me." },
+      { t: "School ki izzat aur pehchan", d: "Apni website aur online system wala school walidain ki nazar me bara aur professional lagta hai. Yahi cheez naye admissions lati hai." },
+    ],
+  },
+  {
+    title: "Teachers ke faide",
+    color: "#7A3FF2",
+    items: [
+      { t: "Hazri mobile se, register khatam", d: "Subah class me kharay kharay mobile se hazri lag jayegi. Register uthaye phirna aur baad me total karna khatam." },
+      { t: "Result banana asaan", d: "Numbers daalein, result card khud ban jata hai. Total, percentage aur position khud calculate. Ghanton ki mehnat khatam." },
+      { t: "Homework ki tension khatam", d: "Assignment system me de dein, jo bacha ghair hazir tha usay bhi ghar par mil jayega." },
+      { t: "Apna time table hamesha samne", d: "Konsa period kis class me hai, mobile par foran maloom. Kisi se poochna nahi parta." },
+      { t: "Notices foran milna", d: "Meeting hai, chutti hai ya schedule badla: khabar foran har teacher tak, kisi ko alag se batana nahi parta." },
+    ],
+  },
+  {
+    title: "Parents (Walidain) ke faide",
+    color: "#F59E0B",
+    items: [
+      { t: "Bacha school pohncha ya nahi", d: "Hazri dekh kar walidain ko sukoon: mera bacha aaj school gaya hai. Ye ek cheez parents ko sab se zyada khush karti hai." },
+      { t: "Fees ki maloomat baghair phone kiye", d: "Fees jama hai ya baqi, due date kab hai: parent khud dekh lega. School par baar baar phone calls khatam." },
+      { t: "Result ghar baithe", d: "Result wale din school ke chakkar nahi. Report card mobile par hazir." },
+      { t: "Har khabar waqt par", d: "Chutti, parent meeting, fee ki aakhri tareekh: koi khabar reh nahi jayegi, koi bahana nahi bane ga." },
+      { t: "School par aitemaad barhta hai", d: "Jis school ka nizam itna saaf ho, walidain wahan apne doosre bachay bhi bhejte hain aur doosron ko bhi mashwara dete hain." },
+    ],
+  },
+  {
+    title: "Students ke faide",
+    color: "#0EA968",
+    items: [
+      { t: "Apna result aur hazri khud dekhna", d: "Bacha apni progress khud dekhta hai to parhai me dilchaspi barhti hai." },
+      { t: "Homework kabhi miss nahi", d: "Ghair hazri wale din ka kaam bhi portal par mil jata hai." },
+      { t: "Time table aur exam schedule samne", d: "Kal konsa paper hai, tayyari pehle se. Koi confusion nahi." },
+      { t: "Library ki kitab ka record", d: "Konsi kitab li, kab wapas karni hai: late fine se bachna asaan." },
+    ],
+  },
+  {
+    title: "Paisay, waqt aur sukoon ki bachat",
+    color: "#E05299",
+    items: [
+      { t: "Registers aur printing ka kharcha kam", d: "Hazri register, fee register, result ki files: ye sab kharchay bohat kam ho jate hain." },
+      { t: "Galti ka chance taqreeban khatam", d: "Total, percentage aur hisaab machine karti hai. Insani galti se honay walay jhagray khatam." },
+      { t: "Fees waqt par ana shuru", d: "Jab har cheez record me ho aur parents ko due date nazar aaye, fees late honay ki sharah kam ho jati hai." },
+      { t: "Naye admissions me madad", d: "Online admission form aur professional website dekh kar naye parents mutasir hotay hain. School grow karta hai." },
+      { t: "School jitna baray ga, system sath baray ga", d: "Aaj 50 bachay hain, kal 200 ho jayen to bhi yehi system chalega. Dobara naya system khareedna nahi parega." },
+      { t: "Sab kuch ek jagah", d: "Fees alag file me, hazri alag register me, result alag jagah: ye bikhra hua nizam khatam. Poora school ek hi jagah." },
+    ],
+  },
+];
+
+const allBenefitsQuick = [
+  "Fees ka mukammal hisaab", "Ek click par purana record", "Mobile se hazri", "Khud bannay wala result card",
+  "Parents ko har khabar waqt par", "Fees ki due date parents ko nazar", "Record gum honay ka dar khatam", "Galti ka chance khatam",
+  "Monthly reports khud tayyar", "Ghar baithe school ki report", "Online admission form", "School ki apni website",
+  "Teachers ka waqt bachta hai", "Registers ka kharcha kam", "Staff ki karkardagi wazeh", "Library ki kitabein mehfooz",
+  "Transport ka record", "Canteen ka hisaab", "Naye admissions me izafa", "Walidain ka aitemaad",
+  "Har kisi ka apna login", "Data 100% school ki property", "Mobile aur computer dono par", "School ke sath barhnay wala system",
+];
+
+function BenefitsTab() {
+  return (
+    <div className="space-y-12">
+      <div>
+        <SectionTitle
+          eyebrow="Benefits: Faide"
+          title="Ye system asal me faida kya dega?"
+          desc="Technical baaton ko ek taraf rakhein. Seedhi si baat ye hai: ye system wohi kaam karta hai jo is waqt registers, files aur Excel me hota hai, bas tez, mehfooz aur baghair galti ke. Jaise poora school ek mobile ke andar aa jaye: fees, hazri, result, har cheez ek jagah, ek click par."
+        />
+        <div className="mt-6 overflow-hidden rounded-2xl border border-neutral-200 bg-white shadow-sm">
+          <div className="grid sm:grid-cols-2">
+            <div className="border-b border-neutral-100 bg-red-50 p-6 sm:border-b-0 sm:border-r">
+              <h3 className="font-bold text-red-600">Pehle: Register wala nizam</h3>
+              <ul className="mt-3 space-y-2 text-sm leading-relaxed text-red-900/70">
+                <li>Fees dhundne ke liye purane register ke pages palatna</li>
+                <li>Result banane me teachers ke kayi din lagna</li>
+                <li>Parent ko khabar dene ke liye phone ya bachay ke hath paighaam</li>
+                <li>Register gum ya kharab ho to saalon ka record khatam</li>
+                <li>Principal ko har baat ke liye kisi se poochna parta hai</li>
+              </ul>
+            </div>
+            <div className="bg-emerald-50 p-6">
+              <h3 className="font-bold text-emerald-700">Ab: TaleemFlow ke sath</h3>
+              <ul className="mt-3 space-y-2 text-sm leading-relaxed text-emerald-900/80">
+                <li>Naam likhein, fees ka pura record ek minute me samne</li>
+                <li>Numbers daalein, result card khud tayyar</li>
+                <li>Har notice foran tamam parents ke mobile par</li>
+                <li>Record hamesha mehfooz, saalon purana bhi ek click par</li>
+                <li>Principal apne mobile par poora school dekh sakta hai</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      {benefitGroups.map((group) => (
+        <div key={group.title}>
+          <SectionTitle eyebrow="Faida" title={group.title} />
+          <div className="mt-5 grid gap-4 sm:grid-cols-2">
+            {group.items.map((item) => (
+              <div key={item.t} className="rounded-2xl border border-neutral-200 bg-white p-5 shadow-sm">
+                <h3 className="flex items-start gap-2 font-semibold" style={{ color: NAVY }}>
+                  <Check className="mt-0.5 h-5 w-5 shrink-0" style={{ color: group.color }} />
+                  {item.t}
+                </h3>
+                <p className="mt-1.5 pl-7 text-sm leading-relaxed text-neutral-500">{item.d}</p>
+              </div>
+            ))}
+          </div>
+        </div>
+      ))}
+
+      <div className="rounded-2xl p-6 text-white" style={{ background: NAVY }}>
+        <h3 className="flex items-center gap-2 font-bold">
+          <Sparkles className="h-5 w-5" /> Ek nazar me tamam faide
+        </h3>
+        <p className="mt-1.5 text-sm text-blue-200">Meeting me ye list parh kar sunayen ya screen par dikhayen. Har line ek mukammal faida hai.</p>
+        <div className="mt-4 grid gap-x-6 gap-y-2 sm:grid-cols-2 lg:grid-cols-3">
+          {allBenefitsQuick.map((b) => (
+            <span key={b} className="flex items-start gap-2 text-sm text-blue-50">
+              <Check className="mt-0.5 h-4 w-4 shrink-0 text-emerald-400" /> {b}
+            </span>
+          ))}
+        </div>
+        <p className="mt-5 border-t border-white/10 pt-4 text-sm leading-relaxed text-blue-100">
+          Sab se bari baat: ye faide sirf bare schools ke liye nahi hain. Chhota school hi in se sab se zyada faida uthata hai, kyunke wahan ek hi shakhs par tamam kaamon ka bojh hota hai. Ye system wohi bojh halka karta hai.
+        </p>
+      </div>
+    </div>
+  );
+}
+
 export default function Offer() {
   const [active, setActive] = useState("system");
 
@@ -879,6 +1022,7 @@ export default function Offer() {
       {/* Content */}
       <main className="mx-auto max-w-6xl px-4 py-10 sm:px-6">
         {active === "system" && <SystemTab />}
+        {active === "benefits" && <BenefitsTab />}
         {active === "script" && <ScriptTab />}
         {active === "offers" && <OffersTab />}
         {active === "plans" && <PlansTab />}
