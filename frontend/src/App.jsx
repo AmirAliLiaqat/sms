@@ -12,6 +12,7 @@ import About from "./pages/landing/About";
 import Login from "./pages/auth/Login";
 import Register from "./pages/auth/Register";
 import ForgotPassword from "./pages/auth/ForgotPassword";
+import Offer from "./pages/landing/Offer";
 
 // public routes
 import {
@@ -172,6 +173,7 @@ function App() {
           <Route path="/campus-life" element={<CampusLife />} />
         </Route>
 
+        <Route path="/offer" element={<Offer />} />
         <Route path="/login" element={<Login />} />
         <Route path="/register" element={<Register />} />
         <Route path="/forgot-password" element={<ForgotPassword />} />
